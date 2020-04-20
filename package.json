@@ -50,7 +50,7 @@
 					"codejournal.debugLog": {
 						"type": "boolean",
 						"scope": "machine-overridable",
-						"default": "false",
+						"default": false,
 						"description": "Is the debug output channel activated?"
 					}
 				}
