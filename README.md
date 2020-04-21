@@ -1,6 +1,8 @@
-# Code Journal README
+# Code Journal
 
 A simple linear single-file journal to support software development.
+
+![Using Code Journal](images/codejournal-use.gif)
 
 ## Features
 
@@ -17,10 +19,8 @@ This extension contributes the following settings:
 
 ## Known Issues
 
-Only top-level headings supported.
+* Only top-level headings supported.
 
-## Release Notes
+## References
 
-### 1.0.0
-
-Initial release of Code Journal.
+The icon used is by Harwen. It is free to use for non-commercial use. Source: [IconArchive](http://www.iconarchive.com/show/pleasant-icons-by-harwen/Default-Icon-icon.html)

@@ -24,6 +24,7 @@
 	"activationEvents": [
         "onCommand:codejournal.addJournalEntry"
 	],
+	"icon": "images/codejournal-icon.png",
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
