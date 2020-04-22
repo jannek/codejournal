@@ -5,7 +5,9 @@
 	"publisher": "jkiviluoto",
 	"version": "1.0.1",
 	"license": "SEE LICENSE IN LICENSE",
-	"keywords": [ "journal" ],
+	"keywords": [
+		"journal"
+	],
 	"bugs": {
 		"url": "https://github.com/jannek/codejournal/issues",
 		"email": "jkiviluoto@iki.fi"
@@ -19,10 +21,10 @@
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/jannek/codejournal.git"
-	  },
+	},
 	"homepage": "https://github.com/jannek/codejournal/blob/master/README.md",
 	"activationEvents": [
-        "onCommand:codejournal.addJournalEntry"
+		"onCommand:codejournal.addJournalEntry"
 	],
 	"icon": "images/codejournal-icon.png",
 	"main": "./out/extension.js",
@@ -30,10 +32,10 @@
 		"commands": [
 			{
 				"command": "codejournal.addJournalEntry",
-                "title": "Code Journal: Add Entry"
+				"title": "Code Journal: Add Entry"
 			}
 		],
-		"configuration":[
+		"configuration": [
 			{
 				"title": "Code Journal",
 				"properties": {
@@ -45,7 +47,7 @@
 					"codejournal.journalHeadingLocale": {
 						"type": "string",
 						"scope": "machine-overridable",
-						"default": "en-US",
+						"default": "default",
 						"description": "The locale used to format heading date string."
 					},
 					"codejournal.debugLog": {
@@ -67,16 +69,19 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.44.0",
 		"@types/glob": "^7.1.1",
 		"@types/mocha": "^7.0.2",
 		"@types/node": "^13.11.0",
-		"eslint": "^6.8.0",
-		"@typescript-eslint/parser": "^2.26.0",
+		"@types/vscode": "^1.44.0",
 		"@typescript-eslint/eslint-plugin": "^2.26.0",
+		"@typescript-eslint/parser": "^2.26.0",
+		"eslint": "^6.8.0",
 		"glob": "^7.1.6",
 		"mocha": "^7.1.1",
 		"typescript": "^3.8.3",
 		"vscode-test": "^1.3.0"
+	},
+	"dependencies": {
+		"full-icu": "^1.3.1"
 	}
 }

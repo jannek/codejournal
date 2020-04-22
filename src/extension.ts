@@ -16,9 +16,9 @@ export function activate(context: vscode.ExtensionContext) {
 			return;
 		}
 		const filePath = cfFilePath;
-		const localeUsed = cfLocaleUsed || 'en-US';
+		const localeUsed = cfLocaleUsed || 'default';
 		const debugLog = cfDebug || false;
-		const headingString = '# ' + now.toLocaleDateString(localeUsed, dateOptions);
+		const headingString = '# ' + new Intl.DateTimeFormat(localeUsed, dateOptions).format(now);
 
 		const outputChannel = vscode.window.createOutputChannel("Code Journal");
 		if (debugLog) {
