@@ -3,8 +3,8 @@
 	"displayName": "Code Journal",
 	"description": "A coding journal",
 	"publisher": "jkiviluoto",
-	"version": "1.0.2",
-	"license": "SEE LICENSE IN LICENSE",
+	"version": "1.0.3",
+	"license": "MIT (See LICENSE)",
 	"keywords": [
 		"journal"
 	],

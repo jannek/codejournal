@@ -20,6 +20,7 @@ This extension contributes the following settings:
 ## Known Issues
 
 * Only top-level headings supported.
+* There is an inconsistency in local vs. remote locale support, Code Journal uses ISO datestring if no full ICU present ([see this bug](https://github.com/microsoft/vscode-remote-release/issues/2884))
 
 ## References
 
