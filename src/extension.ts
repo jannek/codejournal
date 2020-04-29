@@ -6,6 +6,17 @@ export function activate(context: vscode.ExtensionContext) {
 
 		// Setup, read config values and apply defaults.
 		const now = new Date();
+		// Test to detect full ICU support
+		// See: https://nodejs.org/api/intl.html#intl_detecting_internationalization_support
+		const hasFullICU = (() => {
+			try {
+			  const january = new Date(9e8);
+			  const finnish = new Intl.DateTimeFormat('fi', { month: 'long' });
+			  return finnish.format(january) === 'tammikuu';
+			} catch (err) {
+			  return false;
+			}
+		});
 		const dateOptions = { year: 'numeric', month: '2-digit', day: '2-digit' };
 		const config = vscode.workspace.getConfiguration('codejournal');
 		const cfFilePath: string | undefined = config.get('journalFileLocation');
@@ -18,13 +29,19 @@ export function activate(context: vscode.ExtensionContext) {
 		const filePath = cfFilePath;
 		const localeUsed = cfLocaleUsed || 'default';
 		const debugLog = cfDebug || false;
-		const headingString = '# ' + new Intl.DateTimeFormat(localeUsed, dateOptions).format(now);
 
 		const outputChannel = vscode.window.createOutputChannel("Code Journal");
 		if (debugLog) {
 			outputChannel.show(true);
 		} else {
 			outputChannel.hide();
+		}
+
+		if (hasFullICU()) {
+			var headingString = '# ' + new Intl.DateTimeFormat(localeUsed, dateOptions).format(now);
+		} else {
+			outputChannel.appendLine('No full ICU support present, falling back to ISO date');
+			var headingString = `# ${now.getFullYear()}-${(now.getMonth()+1).toLocaleString(undefined, {minimumIntegerDigits: 2})}-${now.getDate().toLocaleString(undefined, {minimumIntegerDigits: 2})}`;
 		}
 
 		// TODO: Get current document context if requested via command parameter?
